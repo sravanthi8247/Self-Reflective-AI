@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+.dark {
+  --background: #030712;
+  --foreground: #f8fafc;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.25);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #f8fafc;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-in {
+    animation: fade-up 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .animate-in-slow {
+    animation: fade-up 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
